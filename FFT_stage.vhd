@@ -25,23 +25,17 @@ constant DELAY : integer := 2**S;
 constant N : integer := 2**logN;
 constant STRIDE : integer := N/(2*DELAY);
 
-constant FIFO_SIZE : integer := ((DELAY/2)+1);
+constant FIFO_SIZE : integer := DELAY;
 
 type delay_ram_t is array (0 to DELAY-1) of word64;
 type FIFO_ram_t is array (0 to FIFO_SIZE-1) of word64;
 signal DELAY_MEM : delay_ram_t;
 
--- We need two FIFO RAMs, as each compute cycle generates two outputs that must be stored that cycle
--- and that we also desire to read each cycle (when data is available), 
--- which cannot be achieved with a dual-port RAM, so there is two.
-
-signal FIFO_EVEN : FIFO_ram_t;
-signal FIFO_ODD : FIFO_ram_t;
+signal FIFO : FIFO_ram_t;
 
 attribute ramstyle : string;
 attribute ramstyle of DELAY_MEM : signal is "M20K";
-attribute ramstyle of FIFO_EVEN : signal is "M20K";
-attribute ramstyle of FIFO_ODD  : signal is "M20K";
+attribute ramstyle of FIFO : signal is "M20K";
 
 signal SAMPLE_CNT : integer range 0 to (2*DELAY-1);
 
@@ -87,15 +81,12 @@ begin
 				WRT_PTR <= 0;
 				READ_PTR <= 0;
 				FIFO_CNT <= 0;
-				FIFO_PHASE <= '0';
 			else
 				if (VALID_IN = '1') then
-					-- During the first half of the cycle we store the inputs
+					-- DELAY THE FIRST HALF OF SAMPLES
 					if (SAMPLE_CNT < DELAY) then
 						DELAY_MEM(SAMPLE_CNT) <= std_logic_vector(DIN.re) & std_logic_vector(DIN.im);
 					else
-					-- During the second half we compute the outputs.
-					-- Each butterfly computes two values that each get stored in their own ram for later outputting
 						TW_CNT := SAMPLE_CNT - DELAY;
 						bw := DELAY_MEM(TW_CNT);
 						A.re := signed(bw(63 downto 32));
@@ -113,48 +104,41 @@ begin
 							Y1 := sub_c32(A,T);
 						end if;
 						
-						FIFO_EVEN(WRT_PTR) <= std_logic_vector(Y0.re) & std_logic_vector(Y0.im);
-						FIFO_ODD(WRT_PTR)  <= std_logic_vector(Y1.re) & std_logic_vector(Y1.im);
+						DOUT.re <= Y0.re;
+						DOUT.im <= Y0.im;
+						
+						FIFO(WRT_PTR)  <= std_logic_vector(Y1.re) & std_logic_vector(Y1.im);
 						
 						WRT_PTR <= (WRT_PTR + 1) mod FIFO_SIZE;
 						
 						FIFO_DELTA := FIFO_DELTA + 1;
+						VALID_OUT <= '1';
 					end if;
 					SAMPLE_CNT <= (SAMPLE_CNT + 1) mod (2*DELAY);
 				end if;
 				
 				
-					-- OUTPUT LOGIC
-					-- If there is anything in the output FIFO buffers, then read them out and set valid_out
+				-- OUTPUT LOGIC
+				if (SAMPLE_CNT < DELAY or VALID_IN = '0') then
 					if (FIFO_CNT > 0) then
-						if (FIFO_PHASE = '0') then
-							fw := FIFO_EVEN(READ_PTR);
-							FIFO_PHASE <= '1';
-						else
-							fw := FIFO_ODD(READ_PTR);
-							
-							READ_PTR <= (READ_PTR + 1) mod FIFO_SIZE;
-							
-							FIFO_PHASE <= '0';
-							FIFO_DELTA := FIFO_DELTA - 1;
-						end if;
 						
-						DOUT.re <= signed(fw(63 downto 32));
-						DOUT.im <= signed(fw(31 downto 0));
+						DOUT.re <= signed(FIFO(READ_PTR)(63 downto 32));
+						DOUT.im <= signed(FIFO(READ_PTR)(31 downto 0));
 
 						VALID_OUT <= '1';
+						FIFO_DELTA := FIFO_DELTA - 1;
+						READ_PTR <= (READ_PTR + 1) mod FIFO_SIZE;
 					else
 						VALID_OUT <= '0'; 
 					end if;
-					
-					-- Ensuring that we don't overflow the FIFO buffers.
-					assert FIFO_CNT + FIFO_DELTA <= FIFO_SIZE
-					report "FFT FIFO overflow"
-					severity failure;
-					
-					assert FIFO_CNT + FIFO_DELTA >= 0
-					report "FFT FIFO underflow"
-					severity failure;
+				end if;
+				assert FIFO_CNT + FIFO_DELTA <= FIFO_SIZE
+				report "FFT FIFO overflow"
+				severity failure;
+				
+				assert FIFO_CNT + FIFO_DELTA >= 0
+				report "FFT FIFO underflow"
+				severity failure;
 
 
 					FIFO_CNT <= FIFO_CNT + FIFO_DELTA;
