@@ -1,0 +1,20 @@
+Fitter Status : Successful - Mon Apr 20 09:29:43 2026
+Quartus Prime Version : 25.3.1 Build 100 12/19/2025 SC Pro Edition
+Revision Name : FFT
+Top-level Entity Name : FFT
+Family : Agilex 5
+Device : A5ED013BB32AE4SCS
+Timing Models : Final
+Power Models : Final
+Device Status : Final
+Logic utilization (in ALMs) : 6,736 / 46,800 ( 14 % )
+Total dedicated logic registers : 4142
+Total pins : 133 / 414 ( 32 % )
+Total block memory bits : 1,051,008 / 7,331,840 ( 14 % )
+Total RAM Blocks : 113 / 358 ( 32 % )
+Total DSP Blocks : 69 / 188 ( 37 % )
+Total GTS Transceiver Channels : 0 / 4 ( 0 % )
+Total HSSI Ethernet Channels : 0 / 1 ( 0 % )
+Total HSSI PCIEs : 0 / 1 ( 0 % )
+Total HSSI HPS : 0 / 1 ( 0 % )
+Total PLLs : 0 / 11 ( 0 % )

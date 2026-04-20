@@ -1,0 +1,526 @@
+Fitter Route Stage Report for FFT
+Mon Apr 20 09:29:06 2026
+Quartus Prime Version 25.3.1 Build 100 12/19/2025 SC Pro Edition
+
+
+---------------------
+; Table of Contents ;
+---------------------
+  1. Legal Notice
+  2. Nets with Highest Wire Count
+  3. Delay Chain Summary
+  4. Routing Usage Summary
+  5. Route Messages
+  6. Global Router Wire Utilization Map
+  7. Peak Wire Demand Summary
+  8. Peak Wire Demand Details
+  9. Peak Total Grid Crossings
+ 10. Global Router Congestion Hotspot Summary
+
+
+
+----------------
+; Legal Notice ;
+----------------
+Copyright (C) 2025  Altera Corporation. All rights reserved.
+Your use of Altera Corporation's design tools, logic functions 
+and other software and tools, and any partner logic 
+functions, and any output files from any of the foregoing 
+(including device programming or simulation files), and any 
+associated documentation or information are expressly subject 
+to the terms and conditions of the Altera Program License 
+Subscription Agreement, the Altera Quartus Prime License Agreement,
+the Altera IP License Agreement, or other applicable license
+agreement, including, without limitation, that your use is for
+the sole purpose of programming logic devices manufactured by
+Altera and sold by Altera or its authorized distributors.  Please
+refer to the Altera Software License Subscription Agreements 
+on the Quartus Prime software download page.
+
+
+
++-----------------------------------------------------------------------+
+; Nets with Highest Wire Count                                          ;
++---------------------------------------+----------------------+--------+
+; Net                                   ; Number of Wires Used ; Fanout ;
++---------------------------------------+----------------------+--------+
+; MODE~input                            ; 1379                 ; 1639   ;
+; RST~input                             ; 631                  ; 411    ;
+; gen_stages[11].stage_i|SAMPLE_CNT[10] ; 474                  ; 587    ;
+; gen_stages[11].stage_i|SAMPLE_CNT[6]  ; 445                  ; 599    ;
+; gen_stages[11].stage_i|SAMPLE_CNT[5]  ; 420                  ; 555    ;
+; gen_stages[11].stage_i|SAMPLE_CNT[7]  ; 411                  ; 555    ;
+; gen_stages[11].stage_i|SAMPLE_CNT[3]  ; 411                  ; 516    ;
+; gen_stages[11].stage_i|SAMPLE_CNT[4]  ; 372                  ; 490    ;
+; gen_stages[11].stage_i|SAMPLE_CNT[9]  ; 351                  ; 496    ;
+; gen_stages[11].stage_i|SAMPLE_CNT[8]  ; 342                  ; 511    ;
++---------------------------------------+----------------------+--------+
+
+
++----------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Delay Chain Summary                                                                                                                                            ;
++---------------+----------+---------------------+--------------------+----------------+-----------------------------------+-------------------------------------+
+; Name          ; Pin Type ; Input Delay Chain 0 ; Output Delay Chain ; OE Delay Chain ; IO_12_LANE Input Data Delay Chain ; IO_12_LANE Input Strobe Delay Chain ;
++---------------+----------+---------------------+--------------------+----------------+-----------------------------------+-------------------------------------+
+; OUTPUT_RE[0]  ; Output   ; --                  ; 0                  ; --             ; --                                ; --                                  ;
+; OUTPUT_RE[1]  ; Output   ; --                  ; 0                  ; --             ; --                                ; --                                  ;
+; OUTPUT_RE[2]  ; Output   ; --                  ; 0                  ; --             ; --                                ; --                                  ;
+; OUTPUT_RE[3]  ; Output   ; --                  ; 0                  ; --             ; --                                ; --                                  ;
+; OUTPUT_RE[4]  ; Output   ; --                  ; 0                  ; --             ; --                                ; --                                  ;
+; OUTPUT_RE[5]  ; Output   ; --                  ; 0                  ; --             ; --                                ; --                                  ;
+; OUTPUT_RE[6]  ; Output   ; --                  ; 0                  ; --             ; --                                ; --                                  ;
+; OUTPUT_RE[7]  ; Output   ; --                  ; 0                  ; --             ; --                                ; --                                  ;
+; OUTPUT_RE[8]  ; Output   ; --                  ; 0                  ; --             ; --                                ; --                                  ;
+; OUTPUT_RE[9]  ; Output   ; --                  ; 0                  ; --             ; --                                ; --                                  ;
+; OUTPUT_RE[10] ; Output   ; --                  ; 0                  ; --             ; --                                ; --                                  ;
+; OUTPUT_RE[11] ; Output   ; --                  ; 0                  ; --             ; --                                ; --                                  ;
+; OUTPUT_RE[12] ; Output   ; --                  ; 0                  ; --             ; --                                ; --                                  ;
+; OUTPUT_RE[13] ; Output   ; --                  ; 0                  ; --             ; --                                ; --                                  ;
+; OUTPUT_RE[14] ; Output   ; --                  ; 0                  ; --             ; --                                ; --                                  ;
+; OUTPUT_RE[15] ; Output   ; --                  ; 0                  ; --             ; --                                ; --                                  ;
+; OUTPUT_RE[16] ; Output   ; --                  ; 0                  ; --             ; --                                ; --                                  ;
+; OUTPUT_RE[17] ; Output   ; --                  ; 0                  ; --             ; --                                ; --                                  ;
+; OUTPUT_RE[18] ; Output   ; --                  ; 0                  ; --             ; --                                ; --                                  ;
+; OUTPUT_RE[19] ; Output   ; --                  ; 0                  ; --             ; --                                ; --                                  ;
+; OUTPUT_RE[20] ; Output   ; --                  ; 0                  ; --             ; --                                ; --                                  ;
+; OUTPUT_RE[21] ; Output   ; --                  ; 0                  ; --             ; --                                ; --                                  ;
+; OUTPUT_RE[22] ; Output   ; --                  ; 0                  ; --             ; --                                ; --                                  ;
+; OUTPUT_RE[23] ; Output   ; --                  ; 0                  ; --             ; --                                ; --                                  ;
+; OUTPUT_RE[24] ; Output   ; --                  ; 0                  ; --             ; --                                ; --                                  ;
+; OUTPUT_RE[25] ; Output   ; --                  ; 0                  ; --             ; --                                ; --                                  ;
+; OUTPUT_RE[26] ; Output   ; --                  ; 0                  ; --             ; --                                ; --                                  ;
+; OUTPUT_RE[27] ; Output   ; --                  ; 0                  ; --             ; --                                ; --                                  ;
+; OUTPUT_RE[28] ; Output   ; --                  ; 0                  ; --             ; --                                ; --                                  ;
+; OUTPUT_RE[29] ; Output   ; --                  ; 0                  ; --             ; --                                ; --                                  ;
+; OUTPUT_RE[30] ; Output   ; --                  ; 0                  ; --             ; --                                ; --                                  ;
+; OUTPUT_RE[31] ; Output   ; --                  ; 0                  ; --             ; --                                ; --                                  ;
+; OUTPUT_IM[0]  ; Output   ; --                  ; 0                  ; --             ; --                                ; --                                  ;
+; OUTPUT_IM[1]  ; Output   ; --                  ; 0                  ; --             ; --                                ; --                                  ;
+; OUTPUT_IM[2]  ; Output   ; --                  ; 0                  ; --             ; --                                ; --                                  ;
+; OUTPUT_IM[3]  ; Output   ; --                  ; 0                  ; --             ; --                                ; --                                  ;
+; OUTPUT_IM[4]  ; Output   ; --                  ; 0                  ; --             ; --                                ; --                                  ;
+; OUTPUT_IM[5]  ; Output   ; --                  ; 0                  ; --             ; --                                ; --                                  ;
+; OUTPUT_IM[6]  ; Output   ; --                  ; 0                  ; --             ; --                                ; --                                  ;
+; OUTPUT_IM[7]  ; Output   ; --                  ; 0                  ; --             ; --                                ; --                                  ;
+; OUTPUT_IM[8]  ; Output   ; --                  ; 0                  ; --             ; --                                ; --                                  ;
+; OUTPUT_IM[9]  ; Output   ; --                  ; 0                  ; --             ; --                                ; --                                  ;
+; OUTPUT_IM[10] ; Output   ; --                  ; 0                  ; --             ; --                                ; --                                  ;
+; OUTPUT_IM[11] ; Output   ; --                  ; 0                  ; --             ; --                                ; --                                  ;
+; OUTPUT_IM[12] ; Output   ; --                  ; 0                  ; --             ; --                                ; --                                  ;
+; OUTPUT_IM[13] ; Output   ; --                  ; 0                  ; --             ; --                                ; --                                  ;
+; OUTPUT_IM[14] ; Output   ; --                  ; 0                  ; --             ; --                                ; --                                  ;
+; OUTPUT_IM[15] ; Output   ; --                  ; 0                  ; --             ; --                                ; --                                  ;
+; OUTPUT_IM[16] ; Output   ; --                  ; 0                  ; --             ; --                                ; --                                  ;
+; OUTPUT_IM[17] ; Output   ; --                  ; 0                  ; --             ; --                                ; --                                  ;
+; OUTPUT_IM[18] ; Output   ; --                  ; 0                  ; --             ; --                                ; --                                  ;
+; OUTPUT_IM[19] ; Output   ; --                  ; 0                  ; --             ; --                                ; --                                  ;
+; OUTPUT_IM[20] ; Output   ; --                  ; 0                  ; --             ; --                                ; --                                  ;
+; OUTPUT_IM[21] ; Output   ; --                  ; 0                  ; --             ; --                                ; --                                  ;
+; OUTPUT_IM[22] ; Output   ; --                  ; 0                  ; --             ; --                                ; --                                  ;
+; OUTPUT_IM[23] ; Output   ; --                  ; 0                  ; --             ; --                                ; --                                  ;
+; OUTPUT_IM[24] ; Output   ; --                  ; 0                  ; --             ; --                                ; --                                  ;
+; OUTPUT_IM[25] ; Output   ; --                  ; 0                  ; --             ; --                                ; --                                  ;
+; OUTPUT_IM[26] ; Output   ; --                  ; 0                  ; --             ; --                                ; --                                  ;
+; OUTPUT_IM[27] ; Output   ; --                  ; 0                  ; --             ; --                                ; --                                  ;
+; OUTPUT_IM[28] ; Output   ; --                  ; 0                  ; --             ; --                                ; --                                  ;
+; OUTPUT_IM[29] ; Output   ; --                  ; 0                  ; --             ; --                                ; --                                  ;
+; OUTPUT_IM[30] ; Output   ; --                  ; 0                  ; --             ; --                                ; --                                  ;
+; OUTPUT_IM[31] ; Output   ; --                  ; 0                  ; --             ; --                                ; --                                  ;
+; VALID_OUT     ; Output   ; --                  ; 0                  ; --             ; --                                ; --                                  ;
+; CLK           ; Input    ; 0                   ; --                 ; --             ; --                                ; --                                  ;
+; RST           ; Input    ; 0                   ; --                 ; --             ; --                                ; --                                  ;
+; MODE          ; Input    ; 0                   ; --                 ; --             ; --                                ; --                                  ;
+; VALID_IN      ; Input    ; 0                   ; --                 ; --             ; --                                ; --                                  ;
+; INPUT_RE[18]  ; Input    ; 0                   ; --                 ; --             ; --                                ; --                                  ;
+; INPUT_RE[19]  ; Input    ; 0                   ; --                 ; --             ; --                                ; --                                  ;
+; INPUT_RE[20]  ; Input    ; 0                   ; --                 ; --             ; --                                ; --                                  ;
+; INPUT_RE[21]  ; Input    ; 0                   ; --                 ; --             ; --                                ; --                                  ;
+; INPUT_RE[22]  ; Input    ; 0                   ; --                 ; --             ; --                                ; --                                  ;
+; INPUT_RE[23]  ; Input    ; 0                   ; --                 ; --             ; --                                ; --                                  ;
+; INPUT_RE[24]  ; Input    ; 0                   ; --                 ; --             ; --                                ; --                                  ;
+; INPUT_RE[25]  ; Input    ; 0                   ; --                 ; --             ; --                                ; --                                  ;
+; INPUT_RE[26]  ; Input    ; 0                   ; --                 ; --             ; --                                ; --                                  ;
+; INPUT_RE[27]  ; Input    ; 0                   ; --                 ; --             ; --                                ; --                                  ;
+; INPUT_RE[28]  ; Input    ; 0                   ; --                 ; --             ; --                                ; --                                  ;
+; INPUT_RE[29]  ; Input    ; 0                   ; --                 ; --             ; --                                ; --                                  ;
+; INPUT_RE[30]  ; Input    ; 0                   ; --                 ; --             ; --                                ; --                                  ;
+; INPUT_RE[31]  ; Input    ; 0                   ; --                 ; --             ; --                                ; --                                  ;
+; INPUT_IM[18]  ; Input    ; 0                   ; --                 ; --             ; --                                ; --                                  ;
+; INPUT_IM[19]  ; Input    ; 0                   ; --                 ; --             ; --                                ; --                                  ;
+; INPUT_IM[20]  ; Input    ; 0                   ; --                 ; --             ; --                                ; --                                  ;
+; INPUT_IM[21]  ; Input    ; 0                   ; --                 ; --             ; --                                ; --                                  ;
+; INPUT_IM[22]  ; Input    ; 0                   ; --                 ; --             ; --                                ; --                                  ;
+; INPUT_IM[23]  ; Input    ; 0                   ; --                 ; --             ; --                                ; --                                  ;
+; INPUT_IM[24]  ; Input    ; 0                   ; --                 ; --             ; --                                ; --                                  ;
+; INPUT_IM[25]  ; Input    ; 0                   ; --                 ; --             ; --                                ; --                                  ;
+; INPUT_IM[26]  ; Input    ; 0                   ; --                 ; --             ; --                                ; --                                  ;
+; INPUT_IM[27]  ; Input    ; 0                   ; --                 ; --             ; --                                ; --                                  ;
+; INPUT_IM[28]  ; Input    ; 0                   ; --                 ; --             ; --                                ; --                                  ;
+; INPUT_IM[29]  ; Input    ; 0                   ; --                 ; --             ; --                                ; --                                  ;
+; INPUT_IM[30]  ; Input    ; 0                   ; --                 ; --             ; --                                ; --                                  ;
+; INPUT_IM[31]  ; Input    ; 0                   ; --                 ; --             ; --                                ; --                                  ;
+; INPUT_RE[0]   ; Input    ; 0                   ; --                 ; --             ; --                                ; --                                  ;
+; INPUT_RE[1]   ; Input    ; 0                   ; --                 ; --             ; --                                ; --                                  ;
+; INPUT_RE[2]   ; Input    ; 0                   ; --                 ; --             ; --                                ; --                                  ;
+; INPUT_RE[3]   ; Input    ; 0                   ; --                 ; --             ; --                                ; --                                  ;
+; INPUT_RE[4]   ; Input    ; 0                   ; --                 ; --             ; --                                ; --                                  ;
+; INPUT_RE[5]   ; Input    ; 0                   ; --                 ; --             ; --                                ; --                                  ;
+; INPUT_RE[6]   ; Input    ; 0                   ; --                 ; --             ; --                                ; --                                  ;
+; INPUT_RE[7]   ; Input    ; 0                   ; --                 ; --             ; --                                ; --                                  ;
+; INPUT_RE[8]   ; Input    ; 0                   ; --                 ; --             ; --                                ; --                                  ;
+; INPUT_RE[9]   ; Input    ; 0                   ; --                 ; --             ; --                                ; --                                  ;
+; INPUT_RE[10]  ; Input    ; 0                   ; --                 ; --             ; --                                ; --                                  ;
+; INPUT_RE[11]  ; Input    ; 0                   ; --                 ; --             ; --                                ; --                                  ;
+; INPUT_RE[12]  ; Input    ; 0                   ; --                 ; --             ; --                                ; --                                  ;
+; INPUT_RE[13]  ; Input    ; 0                   ; --                 ; --             ; --                                ; --                                  ;
+; INPUT_RE[14]  ; Input    ; 0                   ; --                 ; --             ; --                                ; --                                  ;
+; INPUT_RE[15]  ; Input    ; 0                   ; --                 ; --             ; --                                ; --                                  ;
+; INPUT_RE[16]  ; Input    ; 0                   ; --                 ; --             ; --                                ; --                                  ;
+; INPUT_RE[17]  ; Input    ; 0                   ; --                 ; --             ; --                                ; --                                  ;
+; INPUT_IM[0]   ; Input    ; 0                   ; --                 ; --             ; --                                ; --                                  ;
+; INPUT_IM[1]   ; Input    ; 0                   ; --                 ; --             ; --                                ; --                                  ;
+; INPUT_IM[2]   ; Input    ; 0                   ; --                 ; --             ; --                                ; --                                  ;
+; INPUT_IM[3]   ; Input    ; 0                   ; --                 ; --             ; --                                ; --                                  ;
+; INPUT_IM[4]   ; Input    ; 0                   ; --                 ; --             ; --                                ; --                                  ;
+; INPUT_IM[5]   ; Input    ; 0                   ; --                 ; --             ; --                                ; --                                  ;
+; INPUT_IM[6]   ; Input    ; 0                   ; --                 ; --             ; --                                ; --                                  ;
+; INPUT_IM[7]   ; Input    ; 0                   ; --                 ; --             ; --                                ; --                                  ;
+; INPUT_IM[8]   ; Input    ; 0                   ; --                 ; --             ; --                                ; --                                  ;
+; INPUT_IM[9]   ; Input    ; 0                   ; --                 ; --             ; --                                ; --                                  ;
+; INPUT_IM[10]  ; Input    ; 0                   ; --                 ; --             ; --                                ; --                                  ;
+; INPUT_IM[11]  ; Input    ; 0                   ; --                 ; --             ; --                                ; --                                  ;
+; INPUT_IM[12]  ; Input    ; 0                   ; --                 ; --             ; --                                ; --                                  ;
+; INPUT_IM[13]  ; Input    ; 0                   ; --                 ; --             ; --                                ; --                                  ;
+; INPUT_IM[14]  ; Input    ; 0                   ; --                 ; --             ; --                                ; --                                  ;
+; INPUT_IM[15]  ; Input    ; 0                   ; --                 ; --             ; --                                ; --                                  ;
+; INPUT_IM[16]  ; Input    ; 0                   ; --                 ; --             ; --                                ; --                                  ;
+; INPUT_IM[17]  ; Input    ; 0                   ; --                 ; --             ; --                                ; --                                  ;
++---------------+----------+---------------------+--------------------+----------------+-----------------------------------+-------------------------------------+
+
+
++------------------------------------------------------------------+
+; Routing Usage Summary                                            ;
++--------------------------------------+---------------------------+
+; Routing Resource Type                ; Usage                     ;
++--------------------------------------+---------------------------+
+; Block Input Mux Wrapbacks            ; 18 / 43,616 ( < 1 % )     ;
+; Block Input Muxes                    ; 61,024 / 500,456 ( 12 % ) ;
+; Block interconnects                  ; 42,508 / 526,400 ( 8 % )  ;
+; C1 interconnects                     ; 22,539 / 234,240 ( 10 % ) ;
+; C4 interconnects                     ; 6,518 / 229,360 ( 3 % )   ;
+; C8 interconnects                     ; 86 / 22,936 ( < 1 % )     ;
+; DCM_muxes                            ; 1 / 216 ( < 1 % )         ;
+; DELAY_CHAINs                         ; 0 / 1,262 ( 0 % )         ;
+; Direct links                         ; 3,432 / 526,400 ( < 1 % ) ;
+; HIO Buffers                          ; 0 / 10,528 ( 0 % )        ;
+; IO75XDDRFMXCKTREE_CLKDRV_BIG_VCO_REs ; 0 / 8 ( 0 % )             ;
+; IO75XDDRFMXCKTREE_CLKDRV_GM0_REs     ; 0 / 8 ( 0 % )             ;
+; IO75XDDRFMXCKTREE_CLKDRV_VCO_INPUTs  ; 0 / 4 ( 0 % )             ;
+; IO75XDDRFMXCKTREE_CLKDRV_VCO_OUTPUTs ; 0 / 4 ( 0 % )             ;
+; IO75XDDRFMXCKTREE_FB_MUX31_REs       ; 0 / 24 ( 0 % )            ;
+; IOFBRADAPT_C2P_BUF_INPUTs            ; 0 / 66 ( 0 % )            ;
+; IOFBRADAPT_C2P_BUF_OUTPUTs           ; 0 / 66 ( 0 % )            ;
+; IOFBRADAPT_FRZ_BUFS_REs              ; 0 / 308 ( 0 % )           ;
+; IOFBRADAPT_P2C_BUF_INPUTs            ; 0 / 142 ( 0 % )           ;
+; IOFBRADAPT_P2C_BUF_OUTPUTs           ; 0 / 142 ( 0 % )           ;
+; Programmable Invert Buffers          ; 0 / 208 ( 0 % )           ;
+; Programmable Invert Inputs           ; 696 / 57,078 ( 1 % )      ;
+; Programmable Inverts                 ; 696 / 57,078 ( 1 % )      ;
+; R0 interconnects                     ; 27,819 / 401,380 ( 7 % )  ;
+; R1 interconnects                     ; 20,059 / 229,360 ( 9 % )  ;
+; R12 interconnects                    ; 176 / 34,404 ( < 1 % )    ;
+; R2 interconnects                     ; 8,194 / 115,620 ( 7 % )   ;
+; R4 interconnects                     ; 4,803 / 117,500 ( 4 % )   ;
+; R6 interconnects                     ; 3,695 / 118,440 ( 3 % )   ;
+; Redundancy Muxes                     ; 0 / 20,728 ( 0 % )        ;
+; Row Clock Tap-Offs                   ; 631 / 34,404 ( 2 % )      ;
+; Switchbox_clock_muxes                ; 2 / 1,920 ( < 1 % )       ;
+; VIO Buffers                          ; 67 / 8,320 ( < 1 % )      ;
+; Vertical_seam_tap_muxes              ; 3 / 576 ( < 1 % )         ;
++--------------------------------------+---------------------------+
+
+
++----------------+
+; Route Messages ;
++----------------+
+Info (20030): Parallel compilation is enabled and will use 24 of the 32 processors detected
+Info: *******************************************************************
+Info: Running Quartus Prime Fitter
+    Info: Version 25.3.1 Build 100 12/19/2025 SC Pro Edition
+    Info: Processing started: Mon Apr 20 09:26:55 2026
+    Info: System process ID: 27054
+Info: Command: quartus_fit --read_settings_files=on --write_settings_files=off FFT -c FFT
+Info: qfit2_default_script.tcl version: #1
+Info: Project  = FFT
+Info: Revision = FFT
+Info (22300): Design uses Placement Effort Multiplier = 0.8.
+Info (170193): Fitter routing operations beginning
+Info (20215): Router estimated peak short interconnect demand : 32% of down directional wire in region X108_Y24 to X119_Y31
+    Info (20265): Estimated peak short right directional wire demand : 0% in region X84_Y32 to X95_Y39
+    Info (20265): Estimated peak short left directional wire demand : 3% in region X72_Y0 to X83_Y7
+    Info (20265): Estimated peak short up directional wire demand : 22% in region X96_Y40 to X107_Y47
+    Info (20265): Estimated peak short down directional wire demand : 32% in region X108_Y24 to X119_Y31
+Info (20215): Router estimated peak long high speed interconnect demand : 98% of down directional wire in region X84_Y40 to X95_Y47
+    Info (20265): Estimated peak long high speed right directional wire demand : 58% in region X84_Y24 to X95_Y31
+    Info (20265): Estimated peak long high speed left directional wire demand : 88% in region X108_Y40 to X119_Y47
+    Info (20265): Estimated peak long high speed up directional wire demand : 52% in region X108_Y0 to X119_Y7
+    Info (20265): Estimated peak long high speed down directional wire demand : 98% in region X84_Y40 to X95_Y47
+    Info (20315): Note that the router may use short wires to implement long connections at higher delay
+Info (170239): Router is attempting to preserve 0.01 percent of routes from an earlier compilation, a user specified Routing Constraints File, or internal routing requirements.
+Info (11888): Total time spent on timing analysis during Routing is 1.39 seconds.
+Info (16607): Fitter routing operations ending: elapsed time is 00:00:34
+
+
+--------------------------------------
+; Global Router Wire Utilization Map ;
+--------------------------------------
+This report is unavailable in plain text report export.
+
+
++-------------------------------------------------------------------------------+
+; Peak Wire Demand Summary                                                      ;
++-----------------+-----------+-----------------------------------+-------------+
+; Wire            ; Direction ; Grid [(Xmin, Ymin), (Xmax, Ymax)] ; Peak Demand ;
++-----------------+-----------+-----------------------------------+-------------+
+; short           ; right     ; [(84, 32), (95, 39)]              ; 0.104 %     ;
+; short           ; left      ; [(72, 0), (83, 7)]                ; 3.095 %     ;
+; short           ; up        ; [(96, 40), (107, 47)]             ; 22.361 %    ;
+; short           ; down      ; [(108, 24), (119, 31)]            ; 32.083 %    ;
+; long high speed ; right     ; [(84, 24), (95, 31)]              ; 58.784 %    ;
+; long high speed ; left      ; [(108, 40), (119, 47)]            ; 88.542 %    ;
+; long high speed ; up        ; [(108, 0), (119, 7)]              ; 52.222 %    ;
+; long high speed ; down      ; [(84, 40), (95, 47)]              ; 98.810 %    ;
++-----------------+-----------+-----------------------------------+-------------+
+
+
++-------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Peak Wire Demand Details                                                                                                                                          ;
++-----------------+-----------+-----------------------------------+-------------+-----------------------------------------------------------------------------------+
+; Wire            ; Direction ; Grid [(Xmin, Ymin), (Xmax, Ymax)] ; Peak Demand ; Net Names                                                                         ;
++-----------------+-----------+-----------------------------------+-------------+-----------------------------------------------------------------------------------+
+; short           ; right     ; [(84, 32), (95, 39)]              ; 0.104 %     ;    High Routing Fan-Out                                                           ;
+;     --          ;           ;                                   ;             ; INPUT_IM[9]~input                                                                 ;
+; short           ; right     ; [(84, 32), (95, 39)]              ; 0.104 %     ;    Long Distance                                                                  ;
+;     --          ;           ;                                   ;             ; INPUT_IM[9]~input                                                                 ;
+; short           ; left      ; [(72, 0), (83, 7)]                ; 3.095 %     ;    High Routing Fan-Out                                                           ;
+;     --          ;           ;                                   ;             ; OUTPUT_RE[1]~reg0                                                                 ;
+;     --          ;           ;                                   ;             ; OUTPUT_RE[9]~reg0                                                                 ;
+;     --          ;           ;                                   ;             ; OUTPUT_RE[11]~reg0                                                                ;
+;     --          ;           ;                                   ;             ; OUTPUT_RE[15]~reg0                                                                ;
+;     --          ;           ;                                   ;             ; OUTPUT_RE[18]~reg0                                                                ;
+;     --          ;           ;                                   ;             ; OUTPUT_RE[24]~reg0                                                                ;
+;     --          ;           ;                                   ;             ; OUTPUT_RE[25]~reg0                                                                ;
+;     --          ;           ;                                   ;             ; OUTPUT_RE[26]~reg0                                                                ;
+;     --          ;           ;                                   ;             ; OUTPUT_IM[5]~reg0                                                                 ;
+;     --          ;           ;                                   ;             ; OUTPUT_IM[19]~reg0                                                                ;
+; short           ; left      ; [(72, 0), (83, 7)]                ; 3.095 %     ;    Long Distance                                                                  ;
+;     --          ;           ;                                   ;             ; OUTPUT_RE[1]~reg0                                                                 ;
+;     --          ;           ;                                   ;             ; OUTPUT_RE[9]~reg0                                                                 ;
+;     --          ;           ;                                   ;             ; OUTPUT_RE[11]~reg0                                                                ;
+;     --          ;           ;                                   ;             ; OUTPUT_RE[15]~reg0                                                                ;
+;     --          ;           ;                                   ;             ; OUTPUT_RE[18]~reg0                                                                ;
+;     --          ;           ;                                   ;             ; OUTPUT_RE[24]~reg0                                                                ;
+;     --          ;           ;                                   ;             ; OUTPUT_RE[25]~reg0                                                                ;
+;     --          ;           ;                                   ;             ; OUTPUT_RE[26]~reg0                                                                ;
+;     --          ;           ;                                   ;             ; OUTPUT_IM[5]~reg0                                                                 ;
+;     --          ;           ;                                   ;             ; OUTPUT_IM[19]~reg0                                                                ;
+; short           ; up        ; [(96, 40), (107, 47)]             ; 22.361 %    ;    High Routing Fan-Out                                                           ;
+;     --          ;           ;                                   ;             ; WRT_PTR[9]                                                                        ;
+;     --          ;           ;                                   ;             ; WRT_PTR[1]                                                                        ;
+;     --          ;           ;                                   ;             ; WRT_PTR[2]                                                                        ;
+;     --          ;           ;                                   ;             ; WRT_PTR[3]                                                                        ;
+;     --          ;           ;                                   ;             ; WRT_PTR[4]                                                                        ;
+;     --          ;           ;                                   ;             ; WRT_PTR[5]                                                                        ;
+;     --          ;           ;                                   ;             ; WRT_PTR[6]                                                                        ;
+;     --          ;           ;                                   ;             ; WRT_PTR[7]                                                                        ;
+;     --          ;           ;                                   ;             ; WRT_PTR[8]                                                                        ;
+;     --          ;           ;                                   ;             ; WRT_PTR[11]                                                                       ;
+; short           ; up        ; [(96, 40), (107, 47)]             ; 22.361 %    ;    Long Distance                                                                  ;
+;     --          ;           ;                                   ;             ; INPUT_IM[12]~input                                                                ;
+;     --          ;           ;                                   ;             ; INPUT_IM[13]~input                                                                ;
+;     --          ;           ;                                   ;             ; INPUT_IM[16]~input                                                                ;
+;     --          ;           ;                                   ;             ; INPUT_IM[14]~input                                                                ;
+;     --          ;           ;                                   ;             ; INPUT_IM[15]~input                                                                ;
+;     --          ;           ;                                   ;             ; INPUT_IM[10]~input                                                                ;
+;     --          ;           ;                                   ;             ; INPUT_IM[11]~input                                                                ;
+;     --          ;           ;                                   ;             ; INPUT_IM[17]~input                                                                ;
+;     --          ;           ;                                   ;             ; WRT_PTR[1]                                                                        ;
+;     --          ;           ;                                   ;             ; RAM_B~70                                                                          ;
+; short           ; down      ; [(108, 24), (119, 31)]            ; 32.083 %    ;    High Routing Fan-Out                                                           ;
+;     --          ;           ;                                   ;             ; gen_stages[7].stage_i|FIFO_EVEN~67                                                ;
+;     --          ;           ;                                   ;             ; gen_stages[7].stage_i|FIFO_ODD~67                                                 ;
+;     --          ;           ;                                   ;             ; gen_stages[6].stage_i|DOUT.im[31]                                                 ;
+;     --          ;           ;                                   ;             ; gen_stages[7].stage_i|i1150~0                                                     ;
+;     --          ;           ;                                   ;             ; gen_stages[6].stage_i|DOUT.im[1]                                                  ;
+;     --          ;           ;                                   ;             ; gen_stages[6].stage_i|DOUT.im[9]                                                  ;
+;     --          ;           ;                                   ;             ; gen_stages[6].stage_i|DOUT.im[8]                                                  ;
+;     --          ;           ;                                   ;             ; gen_stages[6].stage_i|DOUT.im[7]                                                  ;
+;     --          ;           ;                                   ;             ; gen_stages[6].stage_i|DOUT.im[6]                                                  ;
+;     --          ;           ;                                   ;             ; gen_stages[6].stage_i|DOUT.im[5]                                                  ;
+; short           ; down      ; [(108, 24), (119, 31)]            ; 32.083 %    ;    Long Distance                                                                  ;
+;     --          ;           ;                                   ;             ; gen_stages[7].stage_i|FIFO_ODD_rtl_0|auto_generated|altera_syncram_impl1|q_b[28]  ;
+;     --          ;           ;                                   ;             ; gen_stages[7].stage_i|FIFO_EVEN_rtl_0|auto_generated|altera_syncram_impl1|q_b[2]  ;
+;     --          ;           ;                                   ;             ; gen_stages[7].stage_i|FIFO_EVEN_rtl_0|auto_generated|altera_syncram_impl1|q_b[3]  ;
+;     --          ;           ;                                   ;             ; gen_stages[7].stage_i|FIFO_ODD_rtl_0|auto_generated|altera_syncram_impl1|q_b[40]  ;
+;     --          ;           ;                                   ;             ; gen_stages[7].stage_i|FIFO_EVEN_rtl_0|auto_generated|altera_syncram_impl1|q_b[9]  ;
+;     --          ;           ;                                   ;             ; gen_stages[7].stage_i|FIFO_EVEN_rtl_0|auto_generated|altera_syncram_impl1|q_b[10] ;
+;     --          ;           ;                                   ;             ; gen_stages[7].stage_i|FIFO_EVEN_rtl_0|auto_generated|altera_syncram_impl1|q_b[13] ;
+;     --          ;           ;                                   ;             ; gen_stages[7].stage_i|FIFO_EVEN_rtl_0|auto_generated|altera_syncram_impl1|q_b[15] ;
+;     --          ;           ;                                   ;             ; gen_stages[7].stage_i|FIFO_ODD_rtl_0|auto_generated|altera_syncram_impl1|q_b[16]  ;
+;     --          ;           ;                                   ;             ; gen_stages[7].stage_i|FIFO_ODD_rtl_0|auto_generated|altera_syncram_impl1|q_b[17]  ;
+; long high speed ; right     ; [(84, 24), (95, 31)]              ; 58.784 %    ;    High Routing Fan-Out                                                           ;
+;     --          ;           ;                                   ;             ; gen_stages[5].stage_i|SAMPLE_CNT[3]                                               ;
+;     --          ;           ;                                   ;             ; gen_stages[5].stage_i|SAMPLE_CNT[2]                                               ;
+;     --          ;           ;                                   ;             ; gen_stages[5].stage_i|SAMPLE_CNT[0]                                               ;
+;     --          ;           ;                                   ;             ; gen_stages[5].stage_i|SAMPLE_CNT[4]                                               ;
+;     --          ;           ;                                   ;             ; gen_stages[5].stage_i|SAMPLE_CNT[1]                                               ;
+;     --          ;           ;                                   ;             ; gen_stages[5].stage_i|add_2~1                                                     ;
+;     --          ;           ;                                   ;             ; gen_stages[4].stage_i|FIFO_EVEN~64                                                ;
+;     --          ;           ;                                   ;             ; gen_stages[5].stage_i|i1316~4                                                     ;
+;     --          ;           ;                                   ;             ; gen_stages[5].stage_i|i1316~3                                                     ;
+;     --          ;           ;                                   ;             ; gen_stages[5].stage_i|i1316~2                                                     ;
+; long high speed ; right     ; [(84, 24), (95, 31)]              ; 58.784 %    ;    Long Distance                                                                  ;
+;     --          ;           ;                                   ;             ; gen_stages[5].stage_i|DELAY_MEM~16                                                ;
+;     --          ;           ;                                   ;             ; gen_stages[5].stage_i|DELAY_MEM~14                                                ;
+;     --          ;           ;                                   ;             ; gen_stages[5].stage_i|DELAY_MEM~2                                                 ;
+;     --          ;           ;                                   ;             ; gen_stages[5].stage_i|add_1~6                                                     ;
+;     --          ;           ;                                   ;             ; gen_stages[5].stage_i|add_1~11                                                    ;
+;     --          ;           ;                                   ;             ; gen_stages[5].stage_i|add_1~51                                                    ;
+;     --          ;           ;                                   ;             ; gen_stages[5].stage_i|add_1~46                                                    ;
+;     --          ;           ;                                   ;             ; gen_stages[5].stage_i|add_1~41                                                    ;
+;     --          ;           ;                                   ;             ; gen_stages[5].stage_i|add_1~36                                                    ;
+;     --          ;           ;                                   ;             ; gen_stages[5].stage_i|add_1~31                                                    ;
+; long high speed ; left      ; [(108, 40), (119, 47)]            ; 88.542 %    ;    High Routing Fan-Out                                                           ;
+;     --          ;           ;                                   ;             ; MODE~input                                                                        ;
+;     --          ;           ;                                   ;             ; i294~9                                                                            ;
+;     --          ;           ;                                   ;             ; i294~11                                                                           ;
+;     --          ;           ;                                   ;             ; i294~8                                                                            ;
+;     --          ;           ;                                   ;             ; i294~6                                                                            ;
+;     --          ;           ;                                   ;             ; i294~10                                                                           ;
+;     --          ;           ;                                   ;             ; gen_stages[0].stage_i|FIFO_PHASE                                                  ;
+;     --          ;           ;                                   ;             ; gen_stages[1].stage_i|DELAY_MEM~64                                                ;
+;     --          ;           ;                                   ;             ; gen_stages[0].stage_i|add_5~16                                                    ;
+;     --          ;           ;                                   ;             ; gen_stages[0].stage_i|add_5~11                                                    ;
+; long high speed ; left      ; [(108, 40), (119, 47)]            ; 88.542 %    ;    Long Distance                                                                  ;
+;     --          ;           ;                                   ;             ; MODE~input                                                                        ;
+;     --          ;           ;                                   ;             ; gen_stages[1].stage_i|mult_2~DATAOUTA7_1                                          ;
+;     --          ;           ;                                   ;             ; gen_stages[1].stage_i|mult_2~DATAOUTA23                                           ;
+;     --          ;           ;                                   ;             ; gen_stages[1].stage_i|mult_2~DATAOUTA24                                           ;
+;     --          ;           ;                                   ;             ; gen_stages[1].stage_i|mult_2~DATAOUTA25                                           ;
+;     --          ;           ;                                   ;             ; gen_stages[1].stage_i|mult_2~DATAOUTA26                                           ;
+;     --          ;           ;                                   ;             ; gen_stages[1].stage_i|mult_2~DATAOUTA10_1                                         ;
+;     --          ;           ;                                   ;             ; gen_stages[1].stage_i|mult_2~DATAOUTA0_1                                          ;
+;     --          ;           ;                                   ;             ; gen_stages[1].stage_i|mult_2~DATAOUTA1_1                                          ;
+;     --          ;           ;                                   ;             ; gen_stages[1].stage_i|mult_2~DATAOUTA2_1                                          ;
+; long high speed ; up        ; [(108, 0), (119, 7)]              ; 52.222 %    ;    High Routing Fan-Out                                                           ;
+;     --          ;           ;                                   ;             ; gen_stages[9].stage_i|mult_1~DATAOUTA33_1                                         ;
+;     --          ;           ;                                   ;             ; gen_stages[9].stage_i|mult_2~DATAOUTA33_1                                         ;
+;     --          ;           ;                                   ;             ; gen_stages[9].stage_i|add_1~76                                                    ;
+;     --          ;           ;                                   ;             ; gen_stages[9].stage_i|add_1~11                                                    ;
+;     --          ;           ;                                   ;             ; gen_stages[9].stage_i|add_1~71                                                    ;
+;     --          ;           ;                                   ;             ; gen_stages[9].stage_i|add_1~66                                                    ;
+;     --          ;           ;                                   ;             ; gen_stages[9].stage_i|add_1~61                                                    ;
+;     --          ;           ;                                   ;             ; gen_stages[9].stage_i|add_1~56                                                    ;
+;     --          ;           ;                                   ;             ; gen_stages[9].stage_i|add_1~51                                                    ;
+;     --          ;           ;                                   ;             ; gen_stages[9].stage_i|add_1~41                                                    ;
+; long high speed ; up        ; [(108, 0), (119, 7)]              ; 52.222 %    ;    Long Distance                                                                  ;
+;     --          ;           ;                                   ;             ; gen_stages[9].stage_i|mult_2~DATAOUTA31_1                                         ;
+;     --          ;           ;                                   ;             ; gen_stages[9].stage_i|mult_1~DATAOUTA26_1                                         ;
+;     --          ;           ;                                   ;             ; gen_stages[9].stage_i|mult_1~DATAOUTA25_1                                         ;
+;     --          ;           ;                                   ;             ; gen_stages[9].stage_i|mult_1~DATAOUTA24_1                                         ;
+;     --          ;           ;                                   ;             ; gen_stages[9].stage_i|mult_1~DATAOUTA23_1                                         ;
+;     --          ;           ;                                   ;             ; gen_stages[9].stage_i|mult_1~DATAOUTA22_1                                         ;
+;     --          ;           ;                                   ;             ; gen_stages[9].stage_i|mult_1~DATAOUTA21_1                                         ;
+;     --          ;           ;                                   ;             ; gen_stages[9].stage_i|mult_1~DATAOUTA20_1                                         ;
+;     --          ;           ;                                   ;             ; gen_stages[9].stage_i|mult_1~DATAOUTA19_1                                         ;
+;     --          ;           ;                                   ;             ; gen_stages[9].stage_i|mult_2~DATAOUTA19_1                                         ;
+; long high speed ; down      ; [(84, 40), (95, 47)]              ; 98.810 %    ;    High Routing Fan-Out                                                           ;
+;     --          ;           ;                                   ;             ; gen_stages[3].stage_i|add_2~1                                                     ;
+;     --          ;           ;                                   ;             ; gen_stages[3].stage_i|SAMPLE_CNT[0]                                               ;
+;     --          ;           ;                                   ;             ; gen_stages[3].stage_i|SAMPLE_CNT[2]                                               ;
+;     --          ;           ;                                   ;             ; gen_stages[3].stage_i|SAMPLE_CNT[1]                                               ;
+;     --          ;           ;                                   ;             ; gen_stages[2].stage_i|FIFO_PHASE                                                  ;
+;     --          ;           ;                                   ;             ; gen_stages[3].stage_i|i1380~0                                                     ;
+;     --          ;           ;                                   ;             ; gen_stages[3].stage_i|LessThan_1~0                                                ;
+;     --          ;           ;                                   ;             ; gen_stages[3].stage_i|DELAY_MEM_rtl_0_bypass[0]                                   ;
+;     --          ;           ;                                   ;             ; gen_stages[3].stage_i|DELAY_MEM~64                                                ;
+;     --          ;           ;                                   ;             ; gen_stages[3].stage_i|add_2~6                                                     ;
+; long high speed ; down      ; [(84, 40), (95, 47)]              ; 98.810 %    ;    Long Distance                                                                  ;
+;     --          ;           ;                                   ;             ; gen_stages[3].stage_i|add_6~151                                                   ;
+;     --          ;           ;                                   ;             ; gen_stages[3].stage_i|i130~0                                                      ;
+;     --          ;           ;                                   ;             ; gen_stages[3].stage_i|i131~0                                                      ;
+;     --          ;           ;                                   ;             ; gen_stages[3].stage_i|i132~0                                                      ;
+;     --          ;           ;                                   ;             ; gen_stages[3].stage_i|i133~0                                                      ;
+;     --          ;           ;                                   ;             ; gen_stages[3].stage_i|i134~0                                                      ;
+;     --          ;           ;                                   ;             ; gen_stages[3].stage_i|i135~0                                                      ;
+;     --          ;           ;                                   ;             ; gen_stages[3].stage_i|i136~0                                                      ;
+;     --          ;           ;                                   ;             ; gen_stages[3].stage_i|add_6~126                                                   ;
+;     --          ;           ;                                   ;             ; gen_stages[3].stage_i|add_6~161                                                   ;
++-----------------+-----------+-----------------------------------+-------------+-----------------------------------------------------------------------------------+
+
+
++-----------------------------------------------------------------------------------------+
+; Peak Total Grid Crossings                                                               ;
++------------------------------------------------------------------+----------------------+
+; Net Name                                                         ; Total Grid Crossings ;
++------------------------------------------------------------------+----------------------+
+; MODE~input                                                       ; 24                   ;
+; RST~input                                                        ; 21                   ;
+; RAM_B_rtl_0|auto_generated|altera_syncram_impl1|address_reg_b[0] ; 7                    ;
+; RAM_B~70                                                         ; 7                    ;
+; RAM_B_rtl_0|auto_generated|altera_syncram_impl1|decode3|rtl~1    ; 7                    ;
+; i294~2                                                           ; 7                    ;
+; i294~1                                                           ; 7                    ;
+; i294~0                                                           ; 7                    ;
+; i294~7                                                           ; 7                    ;
+; i294~5                                                           ; 7                    ;
+; i294~4                                                           ; 7                    ;
+; WRT_PTR[1]                                                       ; 7                    ;
+; WRT_PTR[2]                                                       ; 7                    ;
+; WRT_PTR[3]                                                       ; 7                    ;
+; WRT_PTR[4]                                                       ; 7                    ;
+; WRT_PTR[6]                                                       ; 7                    ;
+; WRT_PTR[7]                                                       ; 7                    ;
+; WRT_PTR[9]                                                       ; 7                    ;
+; WRT_PTR[11]                                                      ; 7                    ;
+; RAM_B_rtl_0|auto_generated|altera_syncram_impl1|decode3|rtl~0    ; 7                    ;
+; OUTPUT_IM[29]~reg0                                               ; 6                    ;
+; OUTPUT_IM[26]~reg0                                               ; 6                    ;
+; OUTPUT_IM[21]~reg0                                               ; 6                    ;
+; OUTPUT_IM[20]~reg0                                               ; 6                    ;
+; OUTPUT_IM[18]~reg0                                               ; 6                    ;
+; OUTPUT_IM[15]~reg0                                               ; 6                    ;
+; OUTPUT_IM[14]~reg0                                               ; 6                    ;
+; OUTPUT_IM[11]~reg0                                               ; 6                    ;
+; OUTPUT_IM[10]~reg0                                               ; 6                    ;
+; OUTPUT_IM[6]~reg0                                                ; 6                    ;
+; OUTPUT_IM[0]~reg0                                                ; 6                    ;
+; OUTPUT_RE[29]~reg0                                               ; 6                    ;
+; OUTPUT_RE[21]~reg0                                               ; 6                    ;
+; OUTPUT_RE[17]~reg0                                               ; 6                    ;
+; OUTPUT_RE[16]~reg0                                               ; 6                    ;
+; OUTPUT_RE[10]~reg0                                               ; 6                    ;
+; OUTPUT_RE[8]~reg0                                                ; 6                    ;
+; INPUT_RE[17]~input                                               ; 6                    ;
+; i294~6                                                           ; 6                    ;
+; i294~8                                                           ; 6                    ;
+; i294~9                                                           ; 6                    ;
+; i294~10                                                          ; 6                    ;
+; i294~11                                                          ; 6                    ;
+; WRT_PTR[5]                                                       ; 6                    ;
+; WRT_PTR[8]                                                       ; 6                    ;
+; WRT_PTR[10]                                                      ; 6                    ;
+; gen_stages[11].stage_i|SAMPLE_CNT[10]                            ; 6                    ;
+; gen_stages[11].stage_i|SAMPLE_CNT[9]                             ; 6                    ;
+; gen_stages[11].stage_i|SAMPLE_CNT[8]                             ; 6                    ;
+; gen_stages[11].stage_i|SAMPLE_CNT[7]                             ; 6                    ;
++------------------------------------------------------------------+----------------------+
+
+
+--------------------------------------------
+; Global Router Congestion Hotspot Summary ;
+--------------------------------------------
+No congestion hotspots found where global router short wire usage exceeded 100%.
+If the design is hard to route, use other techniques to analyze congestion. Refer to the Estimated Delay Added for Hold Timing section in the Fitter report and routing utilization in the Chip Planner.
+
+
