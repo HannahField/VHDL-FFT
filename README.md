@@ -1,2 +1,2 @@
 # VHDL-FFT
-A streaming, power of 2 (maximum 4096) FFT implementation in VHDL
+A streaming, 32 bit internal data path, radix-2 variable N FFT implementation in VHDL 
