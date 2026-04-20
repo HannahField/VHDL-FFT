@@ -1,9 +1,0 @@
-Synthesis Status : Successful - Mon Apr 20 09:26:52 2026
-Revision Name : FFT
-Top-level Entity Name : FFT
-Family : Agilex 5
-Quartus Prime Version : 25.3.1 Build 100 12/19/2025 SC Pro Edition
-Device : A5ED013BB32AE4SCS
-Logic utilization estimate (in ALMs) : 6,385 / 46,800 ( 14 % )
-Total dedicated logic registers : 4140
-Estimated DSP Blocks Post-Merging : 69
