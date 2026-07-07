@@ -48,3 +48,4 @@ set_global_assignment -name VHDL_FILE src/FFT_stage.vhd
 set_global_assignment -name VHDL_FILE src/fft_pkg.vhd
 set_global_assignment -name VHDL_FILE src/FFT.vhd
 set_global_assignment -name VHDL_INPUT_VERSION VHDL_2008
+set_global_assignment -name VHDL_FILE testbenches/TB_continuous.vhd

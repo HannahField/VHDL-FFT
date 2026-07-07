@@ -3,8 +3,10 @@
 ./qdb
 ./tmp-clearbox
 ./output
+./work
 FFT.qws
 dni
 output_files
 qdb
+work
 tmp-clearbox
