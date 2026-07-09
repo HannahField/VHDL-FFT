@@ -80,7 +80,7 @@ Below is a small example of a stage, with M = 4, d = 2:
 
 
 ## Testing and Verification
-Testing of the FFT/IFFT module will only be done via simulation, but its use in the previously mentioned SDR is documented in **TBD**, where the output of the DAC is sampled via an analog discovery 2, and decoded in Julia, yielding an EVM of around -40 dB for both OFDM and SC-FDMA.
+Testing of the FFT/IFFT module will only be done via simulation, but its use in the previously mentioned SDR is documented [here](https://github.com/HannahField/VHDL-SDR), where the output of the DAC is sampled via an analog discovery 2, and decoded in Julia, yielding an EVM of around -40 dB for both OFDM and SC-FDMA.
 
 ### Testbench
 So far there is just one testbench which currently includes 4 different tests. The testbench can be seen in /testbenches, and the results can be seen in /notebooks.
