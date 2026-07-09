@@ -28,7 +28,7 @@ architecture RTL of FFT is
 
 -- This project is for the A5ED013BB32AE4SCS FPGA, which is used in the Altera DE25 board.
 -- It takes up 6736 ALMs, about 1 million memory bits, 113 RAM blocks and 69 DSP blocks on this board.
--- The worst-case setup time is about 14ns, leading to an FMax of about 71MHz, so it runs comfortably at 50MHz
+-- The worst-case setup time is about 14.7ns, leading to an FMax of about 68MHz, so it runs comfortably at 50MHz
 
 constant N : integer := 2**logN;
 constant STAGES : integer := logN;

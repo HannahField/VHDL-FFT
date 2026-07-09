@@ -39,11 +39,6 @@ set_global_assignment -name PWRMGT_VOLTAGE_OUTPUT_FORMAT "LINEAR FORMAT"
 set_global_assignment -name PWRMGT_LINEAR_FORMAT_N "-12"
 set_global_assignment -name POWER_APPLY_THERMAL_MARGIN ADDITIONAL
 set_global_assignment -name SDC_FILE src/constraints.sdc
-set_global_assignment -name VHDL_FILE testbenches/TB_single_tone.vhd
-set_global_assignment -name VHDL_FILE testbenches/TB_multi_tone.vhd
-set_global_assignment -name VHDL_FILE testbenches/TB_inverting.vhd
-set_global_assignment -name VHDL_FILE testbenches/TB_Impulse.vhd
-set_global_assignment -name VHDL_FILE testbenches/TB_IFFT_impulse.vhd
 set_global_assignment -name VHDL_FILE src/FFT_stage.vhd
 set_global_assignment -name VHDL_FILE src/fft_pkg.vhd
 set_global_assignment -name VHDL_FILE src/FFT.vhd
