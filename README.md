@@ -95,3 +95,9 @@ Compiled for the Terasic DE25, which is based on an Agilex 5 platform, with a cl
  - 86 / 358 RAM blocks (24%)
  - 69 / 188 DSP blocks (37%)
  - 5.272 ns slack, yielding $`F_{max}\approx68`$ MHz
+
+
+## TODO
+Fix issue with changing FFT mode during runtime - Either make it generic or latch it?
+
+Pipeline the twiddle factor complex multiplication, as it's currently the bottleneck.
