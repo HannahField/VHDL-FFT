@@ -1,5 +1,5 @@
 # Overview
-A standalone FFT/IFFT module in VHDL made for use in an FPGA based Software Defined Radio transmitter, enabling the use of technologies like OFDM and SC-FDMA.
+A standalone FFT/IFFT module in VHDL made for use in an FPGA based Software Defined Radio transmitter, enabling the use of technologies like OFDM and SC-FDMA. It was developed in conjunction with my bachelor project, on the [Design and Implementation of a Digital Baseband Transmitter for an FPGA-Based Software Defined Radio](https://github.com/HannahField/VHDL-SDR)
 
 It was developed for the Terasic DE25 development and education board, which is based on an Altera Agilex 5 platform.
 
