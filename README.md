@@ -29,6 +29,7 @@ The IFFT transform divides by N to fit the convention for the IDFT.
 | Name | Description |
 |---|---|
 | logN | Log2 of transform size. Can be between 1 and 12|
+| MODE | 1 | FFT when `1`, IFFT when `0` |
 ### Ports
 | Signal | Direction | Width | Description|
 |---|---|---|---|
@@ -40,7 +41,6 @@ The IFFT transform divides by N to fit the convention for the IDFT.
 | VALID_IN | in | 1 | Indicates that input data is valid|
 | VALID_OUT | out | 1 | Indicates that output data is valid |
 | RST | in | 1 | Active-high synchronous reset |
-| MODE | in | 1 | FFT when `1`, IFFT when `0` |
 
 ## Architecture
 The architecture is loosely based on a Single-Path Delay Feedback architecture with Decimation-In-Time.
@@ -98,6 +98,5 @@ Compiled for the Terasic DE25, which is based on an Agilex 5 platform, with a cl
 
 
 ## TODO
-Fix issue with changing FFT mode during runtime - Either make it generic or latch it?
 
 Pipeline the twiddle factor complex multiplication, as it's currently the bottleneck.

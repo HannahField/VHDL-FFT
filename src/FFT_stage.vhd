@@ -8,10 +8,10 @@ entity FFT_stage is
 
    generic (
    S : integer;
-	logN : integer);
+	logN : integer;
+	MODE : in std_logic); -- DECIDES FFT (1) / IFFT (0)0
 	port (
 	CLK : in std_logic;
-	MODE : in std_logic; -- DECIDES FFT (1) / IFFT (0)
 	VALID_IN : in std_logic;
 	VALID_OUT : out std_logic;
 	RST : in std_logic;

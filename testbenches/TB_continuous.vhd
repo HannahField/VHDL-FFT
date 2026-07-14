@@ -14,10 +14,11 @@ architecture SIM of TB_continuous is
 	constant logN : integer := 12; -- 4096 FFT
 	constant N : integer := 2**logN;
 	
+	constant MODE_FFT : std_logic := '1'; -- 1 = FFT
+	
 	signal CLK : std_logic := '0';
 	signal RST : std_logic := '1';
 	
-	signal MODE_FFT : std_logic := '1'; -- 1 = FFT
 	
 	
 	constant STEP_0 : integer := 512;
@@ -57,12 +58,12 @@ begin
 	-- FFT
 	DUT1 : entity work.FFT
 		generic map(
-			logN => logN
+			logN => logN,
+			MODE => MODE_FFT
 		)
 		port map(
 			CLK => CLK,
 			RST => RST,
-			MODE => MODE_FFT,
 			VALID_IN => FFT_VALID_IN,
 			VALID_OUT => FFT_VALID_OUT,
 			INPUT_RE => FFT_INPUT_RE,

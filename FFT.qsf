@@ -44,3 +44,4 @@ set_global_assignment -name VHDL_FILE src/fft_pkg.vhd
 set_global_assignment -name VHDL_FILE src/FFT.vhd
 set_global_assignment -name VHDL_INPUT_VERSION VHDL_2008
 set_global_assignment -name VHDL_FILE testbenches/TB_continuous.vhd
+set_instance_assignment -name PARTITION_COLOUR 4287798271 -to FFT -entity FFT

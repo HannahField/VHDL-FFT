@@ -5,7 +5,8 @@ use IEEE.numeric_std.all;
 use work.fft_pkg.all;
 entity FFT is
 	generic(
-	logN : integer := 12);
+	logN : integer := 12;
+	MODE : std_logic := '1'); -- DECIDES FFT (1) / IFFT (0)
 	port(
 	CLK : in std_logic;
 	INPUT_RE : in std_logic_vector(31 downto 0);
@@ -14,8 +15,7 @@ entity FFT is
 	OUTPUT_IM : out std_logic_vector(31 downto 0);
 	VALID_IN : in std_logic;
 	VALID_OUT : out std_logic;
-	RST : in std_logic;
-	MODE : in std_logic); -- DECIDES FFT (1) / IFFT (0)
+	RST : in std_logic);
 end FFT;
 architecture RTL of FFT is
 
@@ -76,11 +76,11 @@ begin
     stage_i : entity work.FFT_stage
         generic map (
             S => i,
-				logN => logN
+				logN => logN,
+            MODE => MODE
         )
         port map (
             CLK       => CLK,
-            MODE      => MODE,
             VALID_IN  => STAGE_VALID(i),
             VALID_OUT => STAGE_VALID(i+1),
             RST       => RST,
