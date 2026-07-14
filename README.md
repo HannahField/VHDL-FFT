@@ -29,7 +29,7 @@ The IFFT transform divides by N to fit the convention for the IDFT.
 | Name | Description |
 |---|---|
 | logN | Log2 of transform size. Can be between 1 and 12|
-| MODE | 1 | FFT when `1`, IFFT when `0` |
+| MODE | FFT when `1`, IFFT when `0` |
 ### Ports
 | Signal | Direction | Width | Description|
 |---|---|---|---|
