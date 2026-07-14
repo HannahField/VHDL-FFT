@@ -28,7 +28,7 @@ The IFFT transform divides by N to fit the convention for the IDFT.
 ### Generics
 | Name | Description |
 |---|---|
-| N | Transform size. Must be a power of two up to 4096.|
+| logN | Log2 of transform size. Can be between 1 and 12|
 ### Ports
 | Signal | Direction | Width | Description|
 |---|---|---|---|
@@ -47,7 +47,7 @@ The architecture is loosely based on a Single-Path Delay Feedback architecture w
 
 The input buffer consists of a set of Ping-Pong RAMs of size N, with the input being stored in bit-reversed order in the current write-buffer, as to enable Decimation-In-Time with natural order inputs. Once the write-buffer is full, it will switch to read mode, from which it will be streamed into the FFT module. When this switch happens, the other RAM becomes the current write-buffer, allowing for continuous natural order streaming despite the Decimation-In-Time architecture.
 
-The module consists for logN stages, $0 \leq s < logN$, each with a size of $M = 2^{s+1}$, delay of $D = 2^s$, and a counter $0 \leq i < M$. For each stage, a butterfly operation is performed on cycles for which $D \leq i < M$, between the current input and the D'th previous input:
+The module consists for logN stages, $0 \leq s < log_2N$, each with a size of $M = 2^{s+1}$, delay of $D = 2^s$, and a counter $0 \leq i < M$. For each stage, a butterfly operation is performed on cycles for which $D \leq i < M$, between the current input and the D'th previous input:
 \
 $$Y_0[k]=X\left[i-D\right]+WX[i]$$
 \
@@ -55,7 +55,7 @@ $$Y_1[k]=X\left[i-D\right]-WX[i]$$
 \
 Where W is the twiddle factor:
 \
-$$W = e^{\pm2\pi j (i-D)/D}$$
+$$W = e^{\pm2\pi j (i-D)/M}$$
 \
 Where - is for the FFT and + is for the IFFT.
 
@@ -67,7 +67,7 @@ Internally, the inputs are converted to a custom dual 32-bit complex type, consi
 
 Below is a small example of a stage, with M = 4, d = 2:
 
-|i |  Current Input | Current Output | Delay Queue | Output Queue|
+|Cycle |  Current Input | Current Output | Delay Queue | Output Queue|
 |---|---|---|---|---|
 |0|X[0]|none|[\_\_\_\_\_,\_\_\_\_\_\_]|[\_\_\_\_\_\_,\_\_\_\_\_\_\_]|
 |1|X[1]|none|[$`X[0]`$,\_\_\_\_\_]|[\_\_\_\_\_\_,\_\_\_\_\_\_\_]|
