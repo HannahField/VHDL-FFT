@@ -98,6 +98,8 @@ Compiled for the Terasic DE25, which is based on an Agilex 5 platform, with a cl
  - 69 / 188 DSP blocks (37%)
  - 5.272 ns slack, yielding $`F_{max}\approx68`$ MHz
 
+## Being Worked On
+Improved testing framework in Julia using GHDL.
 
 ## TODO
 
