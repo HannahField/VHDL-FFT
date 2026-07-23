@@ -2202,8 +2202,8 @@ end shift_right_c32;
 
 
 function saturate_signed(x : signed; s : integer) return signed is
-	constant MAX : signed(s-1 downto 0) := (s-1 => '0', others => '1');
-	constant MIN : signed(s-1 downto 0) := (s-1 => '1', others => '0');
+	constant MAX : signed(s-1 downto 0) := ('0', others => '1');
+	constant MIN : signed(s-1 downto 0) := ('1', others => '0');
 begin
 	if (x > resize(MAX,x'length)) then
 		return MAX;

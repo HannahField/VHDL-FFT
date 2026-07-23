@@ -1,18 +1,17 @@
 abstract type Frame end
 abstract type Generics end
 
-
 function parse_frame end
-function compare_frames end
+function compare end
 
-struct GHDLProject
+struct Testbench
     sources::Vector{String}
-    testbench::String
+    name::String
     build_directory::String
 end
 
 struct Simulation{G<:Generics,I<:Frame,O<:Frame}
-    project::GHDLProject
+    testbench::Testbench
     generics::G
 
     input_path::String
@@ -23,12 +22,12 @@ struct Simulation{G<:Generics,I<:Frame,O<:Frame}
     input_data::Vector{I}
     expected_data::Vector{O}
 
-    tolerance::Int
+    tol::AbstractFloat
 end
 
-function verify(sim::Simulation{G,I,O})::Bool where {G<:Generics,I<:Frame,O<:Frame}
 
-    build_directory = abspath(sim.project.build_directory)
+function simulate(sim::Simulation{G,I,O})::Vector{O} where {G<:Generics,I<:Frame,O<:Frame}
+    build_directory = abspath(sim.testbench.build_directory)
 
     input_path = joinpath(build_directory, sim.input_path)
     output_path = joinpath(build_directory, sim.output_path)
@@ -41,9 +40,9 @@ function verify(sim::Simulation{G,I,O})::Bool where {G<:Generics,I<:Frame,O<:Fra
 
     println("Building project...")
 
-    GHDL_build(sim.project)
+    GHDL_build(sim.testbench)
 
-    println("Running testbench $(sim.project.testbench)...")
+    println("Running testbench $(sim.testbench.name)...")
 
     GHDL_run(sim)
 
@@ -51,9 +50,17 @@ function verify(sim::Simulation{G,I,O})::Bool where {G<:Generics,I<:Frame,O<:Fra
 
     actual_data = read_test_data(O, output_path)
 
+    return actual_data
+end
+
+
+function verify(sim::Simulation{G,I,O})::Bool where {G<:Generics,I<:Frame,O<:Frame}
+
+    actual_data = simulate(sim)
+
     println("Comparing results...")
 
-    passed = compare(sim.expected_data, actual_data; tol=sim.tolerance)
+    passed = compare(sim, actual_data)
 
     println(passed ? "PASS" : "FAIL")
 
@@ -118,22 +125,6 @@ function read_test_data(::Type{T}, filename::AbstractString="results.txt",)::Vec
     return data
 end
 
-function compare(expected::AbstractVector{T}, actual::AbstractVector{T}; tol::Integer=0)::Bool where {T<:Frame}
-    if (length(expected) != length(actual))
-        println("Frame count mismatch")
-        return false
-    end
-
-    for index in eachindex(expected, actual)
-        result = compare_frames(expected[index], actual[index]; tol=tol)
-
-        if (!result)
-            println("Test failed at frame $index")
-            return false
-        end
-    end
-    return true
-end
 
 generic_value(value::Integer) = string(value)
 generic_value(value::Bool) = value ? "'1'" : "'0'"
@@ -150,21 +141,23 @@ function convert_generics(generics::Generics)::Vector{String}
 end
 
 
-function GHDL_build(project::GHDLProject)::Nothing
+function GHDL_build(testbench::Testbench)::Nothing
 
-    build_directory = abspath(project.build_directory)
+    build_directory = abspath(testbench.build_directory)
 
-    sources = abspath.(project.sources)
+    sources = abspath.(testbench.sources)
 
     mkpath(build_directory)
 
     run(Cmd(
-        `ghdl -i --std=08 $sources`;
+        `ghdl -i --std=08
+            $sources`;
         dir=build_directory
     ))
 
     run(Cmd(
-        `ghdl -m --std=08 $(project.testbench)`;
+        `ghdl -m --std=08
+            $(testbench.name)`;
         dir=build_directory
     ))
     return nothing
@@ -172,7 +165,7 @@ end
 
 function GHDL_run(sim::Simulation)::Nothing
 
-    build_directory = abspath(sim.project.build_directory)
+    build_directory = abspath(sim.testbench.build_directory)
 
 
     mkpath(build_directory)
@@ -183,9 +176,11 @@ function GHDL_run(sim::Simulation)::Nothing
 
 
     run(Cmd(
-        `ghdl -r --std=08 $(sim.project.testbench)
+        `ghdl -r --std=08
+            $(sim.testbench.name)
             $generics
-            --stop-time=$(sim.stop_time)`;
+            --stop-time=$(sim.stop_time)
+            --ieee-asserts=disable`;
         dir=build_directory
     ))
     return nothing

@@ -1,0 +1,13 @@
+v 4
+file / "/home/hannah/Documents/VHDL-FFT/src/fft_pkg.vhd" "f7d11009b3619b3afb79ec58d490e6e49a6c26da" "20260723125231.596":
+  package fft_pkg at 1( 0) + 0 on 11 body;
+  package body fft_pkg at 2110( 325459) + 0 on 12;
+file / "/home/hannah/Documents/VHDL-FFT/src/FFT_stage.vhd" "ca65fdf4df8db514d231354dba7bfa8025ab1137" "20260723125231.596":
+  entity fft_stage at 1( 0) + 0 on 13;
+  architecture rtl of fft_stage at 23( 385) + 0 on 14;
+file / "/home/hannah/Documents/VHDL-FFT/src/FFT.vhd" "0e5bd2f6c685a0c29a39d5d354e24d197d16e0b3" "20260723125231.596":
+  entity fft at 1( 0) + 0 on 15;
+  architecture rtl of fft at 20( 497) + 0 on 16;
+file / "/home/hannah/Documents/VHDL-FFT/testbenches/TB_framework.vhd" "08b56f48144b81636fd12e2d6daeb6c92830e0d4" "20260723125231.596":
+  entity tb at 1( 0) + 0 on 17;
+  architecture sim of tb at 22( 352) + 0 on 18;
